@@ -1,0 +1,32 @@
+{%extends "buna/coro.html"%}
+{%block corp%}
+   <ul>
+       <li>origine : {{cal.origine}}</li>
+       <li>destinatie : {{cal.destinatie}}</li>
+       <li>valid:{{cal.este_cal_valid}}</li>
+   </ul>
+   <h1>pasageri</h1>
+   <ul>
+     {%for i in pas%}
+     <li>{{i}}</li>
+     {%empty%}
+     <li>fara pasageri</li>
+     {%endfor%}
+   </ul>
+   <hr>
+   <h2>book</h2>
+   {%if non_pasageri%}
+   <form action="{% url 'book' cal.id%}" method="post">
+     {%csrf_token%}
+    <select name="pasageri" >
+      {%for i in non_pasageri%}
+      <option value="{{i.id}}">{{i}}</option>
+      {%endfor%}
+    </select>
+    <input type="submit" value = "book flight" >
+   </form>
+  {%else%}
+   <div>nu exista pasageri</div>
+  {%endif%}
+  <a href="{% url 'index'%}">inapoi</a>
+{%endblock%}

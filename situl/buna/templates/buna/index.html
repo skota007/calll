@@ -1,0 +1,10 @@
+{%extends "buna/coro.html"%}
+{%block corp%}
+<ul>
+    {%for i in calatorii%}
+    <li>
+        <a href="{%url 'cal' i.id%}">{{i}}</a>
+    </li>
+    {%endfor%}
+</ul>
+{%endblock%}
