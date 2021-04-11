@@ -2,6 +2,6 @@ language: python
 python: 
    - 3.9
 install:
-   - pip install -r requirements.txt
+   - pip install django
 script:
    - python manage.py test
