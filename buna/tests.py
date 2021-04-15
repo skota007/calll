@@ -41,4 +41,4 @@ class testModel(TestCase):
         c = Client()
         rasp = c.get("/")
         self.assertEqual(rasp.status_code, 200)
-        self.assertEqual(rasp.context["calatorii"].count(), 2)
+        self.assertEqual(rasp.context["calatorii"].count(), 3)
